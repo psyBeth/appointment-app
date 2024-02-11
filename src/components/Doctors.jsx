@@ -18,7 +18,9 @@ const Doctors = () => {
       <Row>
         {doctorData.map(({id, img, dep, name}) => (
           <Col key={id}>
-          <img src={img} alt={name} 
+          <img 
+          src={img} 
+          alt={name} 
           className="img-thumbnail doctor-img" 
           onClick={handleShow} />
           <h5>{name}</h5>
@@ -28,7 +30,9 @@ const Doctors = () => {
       </Row>
       <AddModal 
       handleClose={handleClose} 
-      show={show} />
+      show={show}
+      // handleClose = {() => setShow(false)} 
+      />
     </Container>
   )
 }

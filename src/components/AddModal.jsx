@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form'
 
 function AddModal({show, handleClose}) {
 
@@ -8,17 +9,29 @@ function AddModal({show, handleClose}) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Appointment for drname</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>
+            <Form>
+            <Form.Group className="mb-3" controlId="name">
+                <Form.Label>Patient Name</Form.Label>
+                <Form.Control type="text" placeholder="Enter Name" required />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="date">
+                <Form.Label>Date</Form.Label>
+                <Form.Control type="datetime-local" placeholder="Date" required />
+            </Form.Group>
+            <div className='"text-center'>
+                <Button variant="success" type="submit" className='me-2'>
+                    Save
+                </Button>
+                <Button variant="danger" type='button' onClick={handleClose}>
+                    Close
+                </Button>
+            </div>
+            </Form>
+        </Modal.Body>
       </Modal>
     </>
   );
