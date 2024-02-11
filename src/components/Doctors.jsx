@@ -7,6 +7,8 @@ import { useState } from 'react';
 
 const Doctors = () => {
   const [show, setShow] = useState(false);
+  const [drName, setdrName] = useState("")
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
