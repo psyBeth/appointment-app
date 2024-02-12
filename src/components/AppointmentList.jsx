@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container"
 import Col from "react-bootstrap/Col"
 import { TiDelete } from "react-icons/ti";
 
-const AppointmentList = ({appointments}) => {
+const AppointmentList = ({appointments, handleDelete}) => {
   return (
     <Container className="p-2">
       <h3 className="display-6 mb-2" style={{ color: "rgb(166, 18, 189)" }}>
@@ -28,7 +28,8 @@ const AppointmentList = ({appointments}) => {
               <Col className="text-end">
                 <TiDelete 
                   className="text-danger fs-1" 
-                  type="button" />
+                  type="button"
+                  onClick={() => handleDelete(id)} />
               </Col>
             </Row>
           </div>

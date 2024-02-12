@@ -7,15 +7,21 @@ const Home = () => {
 const [appointments, setAppointments] = useState(appointmentData)
 const handleAdd = (newAppointment) => {
   setAppointments([...appointments, newAppointment])
-}
+};
 
+  const handleDelete = (id) => {
+    const filteredList = appointments.filter(item => item.id !== id)
+    setAppointments(filteredList)
+  };
   return (
     <main className="text-center mt-2">
       <h1 className="display-5 text-danger">CLARUS HOSPITAL</h1>
-      <Doctors />
-      <AppointmentList  appointments={appointments} />
+      <Doctors handleAdd={handleAdd}/>
+      <AppointmentList  
+        appointments={appointments} 
+        handleDelete={handleDelete} />
     </main>
-  )
-}
+  );
+};
 
 export default Home
