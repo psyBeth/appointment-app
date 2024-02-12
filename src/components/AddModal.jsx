@@ -1,10 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 
 function AddModal({show, handleClose, drName}) {
+  const [name, setName] = useState("")
+  const [date, setDate] = useState("")
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name,date);
+  }
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -12,15 +18,15 @@ function AddModal({show, handleClose, drName}) {
           <Modal.Title>Appointment for {drName} </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <Form>
+            <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Patient Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter Name" required />
+                <Form.Control onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter Name" required />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="date">
                 <Form.Label>Date</Form.Label>
-                <Form.Control type="datetime-local" placeholder="Date" required />
+                <Form.Control onChange={(e) => (e.target.value)} type="datetime-local" placeholder="Date" required />
             </Form.Group>
             <div className='"text-center'>
                 <Button variant="success" type="submit" className='me-2'>
