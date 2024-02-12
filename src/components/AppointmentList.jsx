@@ -9,25 +9,28 @@ const AppointmentList = ({appointments, handleDelete, handleDoubleClick}) => {
       <h3 className="display-6 mb-2" style={{ color: "rgb(166, 18, 189)" }}>
         Appointment List
       </h3>
-      {appointments.length === 0 && (
-        <img src="./img/appointment.jpg" alt="appointment" width="70%" />
-      )}
+      {appointments.length === 0 && (<img src="./img/appointment.jpg" alt="appointment" width="70%"/>) }
 
-      {appointments.map(({ id, patient, consulted, doctor, day }) => (
+      {appointments.map(appointment => {
+        if (!appointment || typeof appointment !== 'object') {
+          return null; // Skip null or non-object values
+        }
+        const {id, patient, consulted, doctor, day} = appointment;
+        return (
           <div 
-            key={ id } 
+            key={id} 
             className={consulted ? "appointments consulted" : "appointments"} 
             role="button"
             onDoubleClick={() => handleDoubleClick(id)}
           >
             <Row className="justify-content-between align-items-center">
               <Col md={6}>
-              <h4>{patient}</h4>
-              <h5>{doctor}</h5>
+                <h4>{patient}</h4>
+                <h5>{doctor}</h5>
               </Col>
               <Col>
-              <h5> Date: {new Date(day).toLocaleDateString("tr")} </h5>
-              <h6> Time: {new Date(day).toLocaleTimeString("tr")} </h6>
+                <h5> Date: {new Date(day).toLocaleDateString("tr")} </h5>
+                <h6> Time: {new Date(day).toLocaleTimeString("tr")} </h6>
               </Col>
               <Col className="text-end">
                 <TiDelete 
@@ -37,10 +40,10 @@ const AppointmentList = ({appointments, handleDelete, handleDoubleClick}) => {
               </Col>
             </Row>
           </div>
-        ))
-      }
+        );
+      })}
     </Container>
-  )
+  );
 }
 
-export default AppointmentList
+export default AppointmentList;
