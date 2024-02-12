@@ -16,10 +16,10 @@ function AddModal({show, handleClose, drName, handleAdd}) {
       consulted: false,
       doctor: drName,
     }
-    handleAdd();
+    handleAdd(newAppointment);
     handleClose();
     console.log(name,date);
-  }
+  };
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -35,7 +35,7 @@ function AddModal({show, handleClose, drName, handleAdd}) {
 
             <Form.Group className="mb-3" controlId="date">
                 <Form.Label>Date</Form.Label>
-                <Form.Control onChange={(e) => (e.target.value)} type="datetime-local" placeholder="Date" required />
+                <Form.Control onChange={(e) => setDate(e.target.value)} type="datetime-local" placeholder="Date" required />
             </Form.Group>
             <div className='"text-center'>
                 <Button variant="success" type="submit" className='me-2'>
