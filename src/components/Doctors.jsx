@@ -5,7 +5,7 @@ import { Row } from "react-bootstrap"
 import AddModal from "./AddModal"
 import { useState } from 'react';
 
-const Doctors = () => {
+const Doctors = ({handleAdd}) => {
   const [show, setShow] = useState(false);
   const [drName, setdrName] = useState("")
 
@@ -37,6 +37,7 @@ const Doctors = () => {
       show={show}
       drName={drName}
       // handleClose = {() => setShow(false)} 
+      handleAdd={handleAdd}
       />
     </Container>
   )

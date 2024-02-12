@@ -22,8 +22,8 @@ const AppointmentList = ({appointments}) => {
               <h5>{doctor}</h5>
               </Col>
               <Col>
-              <h5> Date: {day.toLocaleDateString("tr")} </h5>
-              <h6> Time: {day.toLocaleTimeString("tr")} </h6>
+              <h5> Date: {new Date(day).toLocaleDateString("tr")} </h5>
+              <h6> Time: {new Date(day).toLocaleTimeString("tr")} </h6>
               </Col>
               <Col className="text-end">
                 <TiDelete 

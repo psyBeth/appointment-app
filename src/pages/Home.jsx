@@ -5,6 +5,9 @@ import { useState } from "react"
 
 const Home = () => {
 const [appointments, setAppointments] = useState(appointmentData)
+const handleAdd = (newAppointment) => {
+  setAppointments([...appointments, newAppointment])
+}
 
   return (
     <main className="text-center mt-2">
