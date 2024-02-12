@@ -25,7 +25,7 @@ export const appointmentData = [
 export const doctorData = [
     {
       id: 1,
-      name: "Dr.Hazel Valery",
+      name: "Dr. Hazel Valery",
       dep: "Cardiology",
       img: "./img/dr1.jpg",
     },
@@ -49,7 +49,7 @@ export const doctorData = [
     },
     {
       id: 5,
-      name: "Harry Coming",
+      name: "Dr. Harry Coming",
       dep: "Surgery",
       img: "./img/dr9.jpg",
     },
@@ -61,7 +61,7 @@ export const doctorData = [
     },
     {
       id: 7,
-      name: "Dr.Asley Graham",
+      name: "Dr. Asley Graham",
       dep: "Pediatry",
       img: "./img/dr7.jpg",
     },

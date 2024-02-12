@@ -10,8 +10,10 @@ const Doctors = () => {
   const [drName, setdrName] = useState("")
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+  const handleShow = (name) => {
+    setShow(true)
+    setdrName(name)
+};
   return (
     <Container className="p-2">
       <h3 className="display-6 mb-3" style={{ color: "rgb(166, 18, 189)" }}>
@@ -24,7 +26,7 @@ const Doctors = () => {
           src={img} 
           alt={name} 
           className="img-thumbnail doctor-img" 
-          onClick={handleShow} />
+          onClick={() => handleShow(name)} />
           <h5>{name}</h5>
           <h6>{dep}</h6>
           </Col>
@@ -33,6 +35,7 @@ const Doctors = () => {
       <AddModal 
       handleClose={handleClose} 
       show={show}
+      drName={drName}
       // handleClose = {() => setShow(false)} 
       />
     </Container>
