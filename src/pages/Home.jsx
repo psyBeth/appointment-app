@@ -15,8 +15,8 @@ const handleAdd = (newAppointment) => {
   };
 
   const handleDoubleClick = (id) => {
-    const updatedList = appointments.map(item => item.id === id ? {...item, consulted: !item.consulted} : item)
-    console.log(id);
+    const updatedList = appointments.map(item => item.id === id ? {...item, consulted: !item.consulted} : item);
+    setAppointments(updatedList);
   }
 
   return (
