@@ -13,13 +13,20 @@ const handleAdd = (newAppointment) => {
     const filteredList = appointments.filter(item => item.id !== id)
     setAppointments(filteredList)
   };
+
+  const handleDoubleClick = (id) => {
+    const updatedList = appointments.map(item => item.id === id ? {...item, consulted: !item.consulted} : item)
+    console.log(id);
+  }
+
   return (
     <main className="text-center mt-2">
       <h1 className="display-5 text-danger">CLARUS HOSPITAL</h1>
       <Doctors handleAdd={handleAdd}/>
       <AppointmentList  
         appointments={appointments} 
-        handleDelete={handleDelete} />
+        handleDelete={handleDelete}
+        handleDoubleClick={handleDoubleClick} />
     </main>
   );
 };
