@@ -14,7 +14,7 @@ const handleAdd = (newAppointment) => {
 };
 
   const handleDelete = (id) => {
-    const filteredList = appointments.filter((item) => item.id !== id)
+    const filteredList = appointments.filter((item) => item.id !== id);
     setAppointments(filteredList);
     localStorage.setItem("list", JSON.stringify(filteredList))
   };
