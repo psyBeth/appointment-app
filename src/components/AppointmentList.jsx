@@ -13,9 +13,9 @@ const AppointmentList = ({appointments, handleDelete, handleDoubleClick}) => {
         <img src="./img/appointment.jpg" alt="appointment" width="70%" />
       )}
 
-      {appointments.map(({id, patient, consulted, doctor, day}) => (
+      {appointments.map(({ id, patient, consulted, doctor, day }) => (
           <div 
-            key={id} 
+            key={ id } 
             className={consulted ? "appointments consulted" : "appointments"} 
             role="button"
             onDoubleClick={() => handleDoubleClick(id)}
