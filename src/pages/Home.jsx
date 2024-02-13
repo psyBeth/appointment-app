@@ -13,11 +13,18 @@ const handleAdd = (newAppointment) => {
   localStorage.setItem("list", JSON.stringify([...appointments, newAppointment]))
 };
 
-  const handleDelete = (id) => {
-    const filteredList = appointments.filter((item) => item.id !== id);
-    setAppointments(filteredList);
-    localStorage.setItem("list", JSON.stringify(filteredList))
-  };
+ // Skip null or non-object values
+const handleDelete = (id) => {
+  const filteredList = appointments.filter(item => {
+    if (!item || typeof item !== 'object') {
+      return false;
+    }
+    // Filter out items with matching id
+    return item.id !== id;
+  });
+  setAppointments(filteredList);
+  localStorage.setItem("list", JSON.stringify(filteredList));
+};
 
   const handleDoubleClick = (id) => {
     const updatedList = appointments.map((item) => 
