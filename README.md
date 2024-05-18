@@ -1,5 +1,5 @@
 # Hospital
-This project is a website created using React and React-Bootstrap.
+This project is developed using React and styled with React-Bootstrap. Users can schedule appointments by entering their name and selecting a specific date and time. The application also allows users to cancel appointments if necessary. If a doctor is unavailable at the chosen time, the app will notify the user with a warning message. <br></br>
 ## Screen recording:
 ![Project snapshot](./hospital.gif) 
 <br></br>
